@@ -12,6 +12,35 @@
   text-align: center; /* Center align for better aesthetics */
   margin-bottom: 20px; /* Add spacing below */
 }
+.add-btn {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 20px auto; /* Add some margin to separate it from other elements */
+  width: 150px; /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  background-color: #1b1a1a; /* Green background */
+  color: white; /* White text */
+  font-size: 18px; /* Font size */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center the text */
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Fully rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-decoration: none; /* Remove underline from the Link */
+  transition: all 0.3s ease-in-out; /* Smooth animations */
+}
+
+.add-btn a {
+  color: white; /* Ensure the text inside Link is white */
+  text-decoration: none; /* Remove underline from the Link */
+}
+
+.add-btn:hover {
+  background-color: #4a4848; /* Slightly darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transform: translateY(-2px); /* Lift the button slightly */
+}
 
 /* Cart Container */
 .cart-container {

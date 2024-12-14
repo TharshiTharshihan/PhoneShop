@@ -36,14 +36,14 @@ function FrontPage() {
           <div className="banner">
             <div className="banner-info">
               <h1>
-                React Course
+                Rio Mobiles
                 <i
                   className="fa-brands fa-youtube"
                   style={{ color: "bisque" }}
                 ></i>
               </h1>
               <div className="rating">
-                <p>Master Program</p>
+                <p>Master Show Room</p>
                 <div className="stars">
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>

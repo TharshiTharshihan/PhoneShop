@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./AdminDashboard.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function AdminDashboard() {
   const [products, setProducts] = useState([]);
@@ -50,30 +50,35 @@ function AdminDashboard() {
   };
 
   return (
-    <div style={{ "background-color": "#1b1a1a ", "padding-top": "250px" }}>
-      <h1 className="heading">Product Details</h1>
-      <div className="cart-container">
-        {products.map((product) => (
-          <div className="product" key={product.id}>
-            <div className="img">
-              <img src={product.image} alt={product.name} />
+    <>
+      <div style={{ "background-color": "#1b1a1a ", "padding-top": "350px" }}>
+        <h1 className="heading">Product Details</h1>
+        <div className="cart-container">
+          {products.map((product) => (
+            <div className="product" key={product.id}>
+              <div className="img">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div className="detail">
+                <h3>{product.name}</h3>
+                <p>Price ${product.price}</p>
+                <button onClick={() => handleEdit(product._id)}>
+                  <i className="bi bi-pen-fill"></i>
+                </button>
+                <br />
+                <br />
+                <button onClick={() => handledelete(product._id)}>
+                  <i className="bi bi-trash3-fill"></i>
+                </button>
+              </div>
             </div>
-            <div className="detail">
-              <h3>{product.name}</h3>
-              <p>Price ${product.price}</p>
-              <button onClick={() => handleEdit(product._id)}>
-                <i className="bi bi-pen-fill"></i>
-              </button>
-              <br />
-              <br />
-              <button onClick={() => handledelete(product._id)}>
-                <i className="bi bi-trash3-fill"></i>
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      <div className="add-btn">
+        <Link to="/create">Add</Link>
+      </div>
+    </>
   );
 }
 

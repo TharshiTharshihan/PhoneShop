@@ -1,5 +1,9 @@
 import "./App.css";
+import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //import Header from "./pages/Header/Header";
@@ -9,7 +13,7 @@ import Login from "./pages/Register/Login";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import CreateProducts from "./pages/AdminDashboard/CreateProducts";
 import UpdateProducts from "./pages/AdminDashboard/UpdateProducts ";
-import Home from "./pages/Home/Home";
+import CustomerDashboard from "./pages/CustomerDashboard/CustomerDashboard";
 
 function App() {
   return (
@@ -22,7 +26,9 @@ function App() {
           <Route path="/admin" element={<AdminDashboard />}></Route>
           <Route path="/create" element={<CreateProducts />}></Route>
           <Route path="/update/:id" element={<UpdateProducts />}></Route>
-          <Route path="/home" element={<Home />}></Route>
+          <Route path="/Customer" element={<CustomerDashboard />}></Route>
+
+          <Route path="/cart" element={<cart />}></Route>
         </Routes>
       </BrowserRouter>
     </>
