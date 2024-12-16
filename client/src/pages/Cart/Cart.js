@@ -3,40 +3,28 @@ import { useLocation } from "react-router-dom";
 
 function Cart() {
   const location = useLocation();
-  const { cart, products } = location.state; // Access cart and products from the passed state
+  const { cartItems } = location.state || { cartItems: [] };
 
-  // Filter the products based on the cart's selected items
-  const selectedProducts = products.filter((product) => cart[product.id]);
-
-  // Calculate the total price of the selected products
-  const totalPrice = selectedProducts.reduce(
-    (total, product) => total + product.price,
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
     0
   );
 
   return (
     <div>
-      <h2>View Cart</h2>
-      <div className="cart-items">
-        {selectedProducts.length > 0 ? (
-          selectedProducts.map((product) => (
-            <div key={product._id} className="cart-item">
-              <div className="img">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="detail">
-                <h3>{product.name}</h3>
-                <p>Price ${product.price}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
-      </div>
-      <div className="total">
-        <h3>Total: ${totalPrice}</h3>
-      </div>
+      <h1>Your Cart</h1>
+      {cartItems.length > 0 ? (
+        cartItems.map((item) => (
+          <div key={item._id}>
+            <h3>{item.name}</h3>
+            <p>Price: ${item.price}</p>
+            <p>Quantity: {item.quantity}</p>
+          </div>
+        ))
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+      <h2>Total: ${totalAmount.toFixed(2)}</h2>
     </div>
   );
 }

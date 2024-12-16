@@ -7,6 +7,7 @@
 
 .heading {
   padding-top: 120px !important;
+  font-family:'Courier New', Courier, monospace;
   font-size: 2rem; /* Adjust the size as needed */
   color: #19d0e1; /* Add color for better visibility */
   text-align: center; /* Center align for better aesthetics */
@@ -19,7 +20,7 @@
   margin: 20px auto; /* Add some margin to separate it from other elements */
   width: 150px; /* Set a fixed width */
   height: 50px; /* Set a fixed height */
-  background-color: #1b1a1a; /* Green background */
+  background-color: #5e5c5c; /* Green background */
   color: white; /* White text */
   font-size: 18px; /* Font size */
   font-weight: bold; /* Bold text */
@@ -32,8 +33,9 @@
 }
 
 .add-btn a {
-  color: white; /* Ensure the text inside Link is white */
-  text-decoration: none; /* Remove underline from the Link */
+  color: white;
+ 
+  text-decoration: none; 
 }
 
 .add-btn:hover {

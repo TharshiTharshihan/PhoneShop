@@ -52,7 +52,7 @@ function AdminDashboard() {
   return (
     <>
       <div style={{ "background-color": "#1b1a1a ", "padding-top": "350px" }}>
-        <h1 className="heading">Product Details</h1>
+        <h1 className="heading">PRODUCTS DETAILS</h1>
         <div className="cart-container">
           {products.map((product) => (
             <div className="product" key={product.id}>

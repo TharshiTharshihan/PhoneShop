@@ -1,11 +1,12 @@
 import React from "react";
 import "./frontpage.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Link } from "react-router-dom";
 
 function FrontPage() {
   return (
     <>
-      <main id="main">
+      <main id="main1">
         <header id="header">
           <div className="header">
             <div className="logo">
@@ -14,19 +15,19 @@ function FrontPage() {
             <div className="navbar">
               <ul className="menu">
                 <li>
-                  <a href="#">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="#">Home</a>
+                  <a href="#">About</a>
                 </li>
                 <li>
-                  <a href="#">Home</a>
+                  <a href="#">services</a>
                 </li>
                 <li>
-                  <a href="#">Home</a>
+                  <Link to="/login"> Login</Link>
                 </li>
                 <li>
-                  <a href="#">Login</a>
+                  <Link to="/signup"> Signup</Link>
                 </li>
               </ul>
             </div>
@@ -37,10 +38,7 @@ function FrontPage() {
             <div className="banner-info">
               <h1>
                 Rio Mobiles
-                <i
-                  className="fa-brands fa-youtube"
-                  style={{ color: "bisque" }}
-                ></i>
+                <i className="bi bi-phone" style={{ color: "bisque" }}></i>
               </h1>
               <div className="rating">
                 <p>Master Show Room</p>
@@ -63,18 +61,19 @@ function FrontPage() {
             </div>
             <div className="course">
               <div className="course-block">
-                <h4>Next Course</h4>
-                <p>At 5.00 am</p>
+                <h4>Kalmunai</h4>
+                <p>opens at 8.00 am</p>
               </div>
               <div className="course-block">
-                <h4>Next Course</h4>
-                <p>At 5.00 am</p>
+                <h4>Galle</h4>
+                <p>opens at 8.00 am</p>
               </div>
               <div className="course-block">
-                <h4>Next Course</h4>
-                <p>At 5.00 am</p>
+                <h4>Colombo</h4>
+                <p>opens at 9.00 am</p>
               </div>
             </div>
+            {/* <div className="GetStart">Get Start</div> */}
           </div>
         </section>
         <section id="service">

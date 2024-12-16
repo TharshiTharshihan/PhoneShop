@@ -78,7 +78,7 @@ function Login() {
                 setpassword(e.target.value);
               }}
             />
-            <button>go on... click me!"</button>
+            <button className="signup">go on... click me!"</button>
           </form>
           <a href="#">forgot ?</a>
 
