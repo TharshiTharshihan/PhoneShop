@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/Phone");
+mongoose.connect(process.env.MONGODB);
 
 var db = mongoose.connection;
 

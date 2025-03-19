@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
@@ -12,8 +15,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
     credentials: true,
   })
 );
@@ -94,6 +97,24 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
+// Get a single product package by ID
+app.get("/api/products/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await productModel.findById(id);
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, message: "product not found." });
+    }
+    res.status(200).json({ success: true, data: product });
+  } catch (error) {
+    console.error("Error fetching product:", error.message);
+    res.status(500).json({ success: false, message: "Server error." });
+  }
+});
+
 // update
 
 app.put("/api/products/:id", async (req, res) => {
@@ -125,7 +146,7 @@ app.delete("/api/products/:id", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  "server is running";
+  console.log(`Server running on port ${port}`);
 });
