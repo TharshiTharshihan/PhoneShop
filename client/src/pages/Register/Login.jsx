@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Signup.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Header from "../Header/Header.jsx";
 
 function Login() {
   const [email, setemail] = useState("");
@@ -50,6 +50,8 @@ function Login() {
 
   return (
     <>
+      <Header />
+
       <section className=" dark:bg-gray-900">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
           <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">

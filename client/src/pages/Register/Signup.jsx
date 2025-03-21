@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signup.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Header from "../Header/Header.jsx";
 
 function Signup() {
   const [name, setname] = useState("");
@@ -33,6 +33,7 @@ function Signup() {
 
   return (
     <>
+      <Header />
       <section className=" dark:bg-gray-900">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
           <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">

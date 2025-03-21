@@ -14,6 +14,7 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import CreateProducts from "./pages/AdminDashboard/CreateProducts";
 import UpdateProducts from "./pages/AdminDashboard/UpdateProducts ";
 import CustomerDashboard from "./pages/CustomerDashboard/CustomerDashboard";
+import CartPage from "./pages/Cart/Cart";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/update/:id" element={<UpdateProducts />}></Route>
           <Route path="/Customer" element={<CustomerDashboard />}></Route>
 
-          <Route path="/cart" element={<cart />}></Route>
+          <Route path="/cart" element={<CartPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

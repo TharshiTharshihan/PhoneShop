@@ -2,43 +2,19 @@ import React from "react";
 import "./frontpage.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header.jsx";
 
 function FrontPage() {
   return (
     <>
       <main id="main1">
-        <header id="header">
-          <div className="header bg-red">
-            <div className="logo">
-              <img src="./logo.png" alt="logo" />
-            </div>
-            <div className="navbar">
-              <ul className="menu">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">services</a>
-                </li>
-                <li>
-                  <Link to="/login"> Login</Link>
-                </li>
-                <li>
-                  <Link to="/signup"> Signup</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </header>
+        <Header />
         <section id="banner">
           <div className="banner">
             <div className="banner-info">
               <h1>
                 Rio Mobiles
-                <i className="bi bi-phone" style={{ color: "bisque" }}></i>
+                <i className="bi bi-phone" style={{ color: "blue" }}></i>
               </h1>
               <div className="rating">
                 <p>Master Show Room</p>
@@ -53,10 +29,14 @@ function FrontPage() {
               </div>
 
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Assumenda ratione officiis cupiditate corrupti quisquam iure, a
-                minima quidem esse soluta sequi accusamus rem laboriosam
-                architecto ea aut odit aspernatur aliquid.
+                At Rio Mobiles, we bring you the latest smartphones with
+                cutting-edge technology, exceptional quality, and unbeatable
+                prices. As a trusted master showroom, we ensure a seamless
+                shopping experience with expert guidance and customer
+                satisfaction at the heart of everything we do. Whether you`re
+                looking for flagship models, budget-friendly options, or premium
+                accessories, our wide range of products caters to every need.
+                Visit us today and experience innovation like never before!
               </p>
             </div>
             <div className="course">
