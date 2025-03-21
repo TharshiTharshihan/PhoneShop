@@ -27,8 +27,7 @@ function App() {
           <Route path="/admin" element={<AdminDashboard />}></Route>
           <Route path="/create" element={<CreateProducts />}></Route>
           <Route path="/update/:id" element={<UpdateProducts />}></Route>
-          <Route path="/Customer" element={<CustomerDashboard />}></Route>
-
+          <Route path="/customer" element={<CustomerDashboard />}></Route>
           <Route path="/cart" element={<CartPage />}></Route>
         </Routes>
       </BrowserRouter>

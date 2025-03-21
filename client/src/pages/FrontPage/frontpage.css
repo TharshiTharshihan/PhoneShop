@@ -6,7 +6,7 @@
 }
 
 #header{
-    background-color: #2f2e2e;
+    background-color: #475569;
     padding-top: 30px;
 }
 .header{
@@ -29,7 +29,7 @@ padding: 10px 24px;
     text-decoration: none; 
 }
 .menu li:hover{
-    background-color: #106374;
+    background-color: #030712;
     border-radius: 7px;
     border-bottom: #02141f ;
 }
@@ -55,7 +55,7 @@ padding: 10px 24px;
     font-weight: normal;
 }
 .banner h1, .banner-info p{
-    color: #fff;
+    color: #9ca3af;
 }
 .banner-info > p{
     width: 50%;
@@ -68,7 +68,7 @@ padding: 10px 24px;
     margin-bottom: 30px;
 }
 .stars i{
-    color: rgb(241, 253, 7);
+    color: #fcd34d;
 }
 
 .course{

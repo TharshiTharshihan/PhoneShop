@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Nav = () => {
   return (
     <header id="header">
       <div className="header bg-red">
@@ -20,7 +20,7 @@ const Header = () => {
               <Link href="#">services</Link>
             </li>
             <li>
-              <Link to="/login"> Login</Link>
+              <Link to="/cart"> cart </Link>
             </li>
             <li>
               <Link to="/signup"> Signup</Link>
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Nav;
