@@ -4,7 +4,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 
 //import Header from "./pages/Header/Header";
 import FrontPage from "./pages/FrontPage/frontpage";
@@ -16,6 +22,11 @@ import UpdateProducts from "./pages/AdminDashboard/UpdateProducts ";
 import CustomerDashboard from "./pages/CustomerDashboard/CustomerDashboard";
 import CartPage from "./pages/Cart/Cart";
 
+const ProtectedRoute = () => {
+  const user = null;
+  return user ? <Outlet /> : <Navigate to="/" />;
+};
+
 function App() {
   return (
     <>
@@ -24,11 +35,14 @@ function App() {
           <Route path="/" element={<FrontPage />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/admin" element={<AdminDashboard />}></Route>
-          <Route path="/create" element={<CreateProducts />}></Route>
-          <Route path="/update/:id" element={<UpdateProducts />}></Route>
-          <Route path="/customer" element={<CustomerDashboard />}></Route>
-          <Route path="/cart" element={<CartPage />}></Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminDashboard />}></Route>
+            <Route path="/create" element={<CreateProducts />}></Route>
+            <Route path="/update/:id" element={<UpdateProducts />}></Route>
+            <Route path="/customer" element={<CustomerDashboard />}></Route>
+            <Route path="/cart" element={<CartPage />}></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
