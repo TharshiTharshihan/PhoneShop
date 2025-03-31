@@ -7,6 +7,7 @@ import { addCart } from "../../redux/slice";
 
 function CustomerDashboard() {
   const [products, setProducts] = useState([]);
+  const selected = useState("true");
 
   const dispatch = useDispatch();
 
@@ -43,31 +44,31 @@ function CustomerDashboard() {
                 }}
               />
               <div className="p-4">
-                <p className="mb-1 text-sm text-primary-500">
-                  {product.seller} •
-                  <time>{new Date(product.date).toDateString()}</time>
-                </p>
                 <h3 className="text-xl font-medium text-gray-900">
                   {product.name}
                 </h3>
                 <p className="mt-1 text-gray-500">{product.description}</p>
                 <div className="mt-2 flex gap-1">
-                  <button
-                    onClick={() => {
-                      dispatch(
-                        addCart({
-                          _id: product._id,
-                          name: product.name,
-                          price: product.price,
-                          image: product.image,
-                          quantity: 1,
-                        })
-                      );
-                    }}
-                    className="py-1 px-3 inline-flex items-center gap-x-2 text-xs font-medium border border-transparent bg-cyan-600 text-white hover:bg-cyan-950 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none rounded-full"
-                  >
-                    ADD
-                  </button>
+                  {selected ? (
+                    <button
+                      onClick={() => {
+                        dispatch(
+                          addCart({
+                            _id: product._id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            quantity: 1,
+                          })
+                        );
+                      }}
+                      className="py-1 px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg !rounded-lg border-transparent bg-cyan-600 text-white hover:bg-cyan-950 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
+                    >
+                      ADD
+                    </button>
+                  ) : (
+                    <button> remove</button>
+                  )}
 
                   <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xl font-semibold text-neutral-950">
                     ${product.price}

@@ -51,8 +51,8 @@ function AdminDashboard() {
 
   return (
     <>
-      <div className="bg-[#1b1a1a] pt-[350px]">
-        <h1 className="text-center text-teal-400 text-2xl font-mono pt-32 pb-5">
+      <div className="bg-[#0000001d] ">
+        <h1 className="text-center text-black   text-2xl font-mono pt-32 pb-5">
           PRODUCTS DETAILS
         </h1>
         <div className="grid grid-cols-3 gap-12 mx-auto px-4 max-w-screen-lg">
@@ -74,7 +74,7 @@ function AdminDashboard() {
                 <div className="space-y-2">
                   <button
                     onClick={() => handleEdit(product._id)}
-                    className="bg-teal-500 text-white font-bold py-2 px-4 rounded-md w-full transition-opacity duration-300 hover:opacity-90"
+                    className="bg-teal-500 text-white font-bold py-2 px-4 rounded-md w-full transition-opacity duration-300 hover:opacity-90 hover:bg-teal-900"
                   >
                     <i className="bi bi-pen-fill"></i>
                   </button>
@@ -90,10 +90,10 @@ function AdminDashboard() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8 p-8  ">
           <Link
             to="/create"
-            className="bg-gray-600 text-white font-bold text-lg py-2 px-6 rounded-full hover:bg-gray-700 transition-all duration-300"
+            className="bg-gray-600 text-white no-underline  !no-underline font-bold text-lg py-2 px-6 rounded-full hover:bg-gray-700 transition-all duration-300"
           >
             Add
           </Link>
