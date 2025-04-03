@@ -10,7 +10,10 @@ const cookieParser = require("cookie-parser");
 const userModel = require("./models/users");
 const db = require("./db");
 const productModel = require("./models/products");
-
+const Stripe = require("stripe");
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2023-10-16", // Required for newer SDK versions
+});
 app.use(cookieParser());
 app.use(express.json());
 app.use(
@@ -143,6 +146,34 @@ app.delete("/api/products/:id", async (req, res) => {
   } catch (err) {
     console.error("Error in  delete product", err.message);
     res.status(500).json({ success: false, message: " error" });
+  }
+});
+
+// Payments
+app.post("/api/checkout", async (req, res) => {
+  try {
+    const { totalAmount } = req.body;
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: { name: "Customized Tour Package" },
+            unit_amount: Math.round(totalAmount * 100),
+          },
+          quantity: 1,
+        },
+      ],
+      success_url: `http://localhost:4000/success`,
+      cancel_url: `http://localhost:4000/cancel`,
+    });
+
+    res.json({ id: session.id });
+  } catch (e) {
+    console.error("Stripe Error:", e);
+    res.status(500).json({ error: e.message });
   }
 });
 

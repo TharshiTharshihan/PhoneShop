@@ -67,7 +67,7 @@ function CustomerDashboard() {
                       ADD
                     </button>
                   ) : (
-                    <button> remove</button>
+                    <button>remove</button>
                   )}
 
                   <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xl font-semibold text-neutral-950">

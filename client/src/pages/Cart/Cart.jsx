@@ -1,6 +1,8 @@
 import React from "react";
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { removeCart, updateQuantity } from "../../redux/slice";
+import { loadStripe } from "@stripe/stripe-js";
 
 function CartPage() {
   const cartItems = useSelector((state) => state.cart.cart);
@@ -20,6 +22,27 @@ function CartPage() {
     // Ensure quantity is not less than 1
     if (quantity < 1) return;
     dispatch(updateQuantity({ _id: item._id, quantity }));
+  };
+
+  const stripePromise = loadStripe(
+    "pk_test_51R9irmRp8EKuZlqYGXVVbkJ8M7NaLhUTqOYd5xw0YpcYMSkrLXcyIr10Cha1su3I2d4Rg4PDd8wqJetzmIVx1Hzj00WM0Zr2m7"
+  );
+
+  const handlePayment = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/api/checkout", {
+        totalAmount,
+      });
+
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: response.data.id, // Use session ID from backend
+      });
+
+      if (error) throw error;
+    } catch (error) {
+      console.error("Payment Error:", error);
+    }
   };
 
   return (
@@ -72,6 +95,17 @@ function CartPage() {
 
           <div className="mt-4 text-xl font-semibold">
             <p>Total Amount: ${totalAmount.toFixed(2)}</p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
+            <button color="primary" onClick={handlePayment}>
+              Proceed to Payment
+            </button>
           </div>
         </div>
       )}
