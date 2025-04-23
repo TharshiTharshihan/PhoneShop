@@ -5,8 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  darkMode: "selector",
   server: {
-    port: 4000,
+    port: 3000,
   },
 });
