@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./AdminDashboard.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
@@ -51,38 +50,41 @@ function AdminDashboard() {
 
   return (
     <>
-      <div className="bg-[#0000001d] ">
-        <h1 className="text-center text-black   text-2xl font-mono pt-32 pb-5">
-          PRODUCTS DETAILS
+      <div className="bg-[#d9d9d9] min-h-screen py-20">
+        <h1 className="text-center text-3xl font-semibold text-gray-800 mb-12">
+          Product Details
         </h1>
-        <div className="grid grid-cols-3 gap-12 mx-auto px-4 max-w-screen-lg">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto">
           {products.map((product) => (
             <div
-              className="bg-gray-300 border-2 border-yellow-400 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg"
               key={product._id}
+              className="bg-[#96acc0] border border-[#000000] rounded-xl shadow hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="w-full h-64 overflow-hidden">
+              <div className="w-full h-60 overflow-hidden rounded-t-xl">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300  hover:cursor-pointer"
                 />
               </div>
-              <div className="text-center p-4">
-                <h3 className="text-lg text-gray-800 mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">Price ${product.price}</p>
-                <div className="space-y-2">
+              <div className="p-5 text-center">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
+                  {product.name}
+                </h3>
+                <p className="text-gray-900  mb-4">Price: ${product.price}</p>
+                <div className="flex flex-col gap-3">
                   <button
                     onClick={() => handleEdit(product._id)}
-                    className="bg-teal-500 text-white font-bold py-2 px-4 rounded-md w-full transition-opacity duration-300 hover:opacity-90 hover:bg-teal-900"
+                    className="bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition hover:cursor-pointer"
                   >
-                    <i className="bi bi-pen-fill"></i>
+                    <i className="bi bi-pen-fill mr-2"></i>Edit
                   </button>
                   <button
                     onClick={() => handledelete(product._id)}
-                    className="bg-red-600 text-white font-bold py-2 px-4 rounded-md w-full transition-opacity duration-300 hover:bg-red-700 hover:opacity-90"
+                    className="bg-red-600 text-white font-medium py-2 rounded-md hover:bg-red-700 transition  hover:cursor-pointer"
                   >
-                    <i className="bi bi-trash3-fill"></i>
+                    <i className="bi bi-trash3-fill mr-2"></i>Delete
                   </button>
                 </div>
               </div>
@@ -90,12 +92,12 @@ function AdminDashboard() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-8 p-8  ">
+        <div className="flex justify-center mt-12">
           <Link
             to="/create"
-            className="bg-gray-600 text-white no-underline  !no-underline font-bold text-lg py-2 px-6 rounded-full hover:bg-gray-700 transition-all duration-300"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-semibold py-2 px-6 rounded-full transition"
           >
-            Add
+            + Add New Product
           </Link>
         </div>
       </div>

@@ -28,12 +28,12 @@ function CustomerDashboard() {
     <>
       <Nav />
 
-      <div className="flex justify-center bg-[#172554]">
+      <div className="flex justify-center bg-[#d9d9d9]">
         <div className="grid grid-cols-3 gap-x-6 gap-y-4 p-4">
           {products.map((product) => (
             <div
               key={product._id}
-              className="w-[300px] h-[450px] overflow-hidden rounded-lg bg-yellow-300 shadow"
+              className="w-[300px] h-[450px] overflow-hidden rounded-lg bg-[#b3ef1b] shadow"
             >
               <img
                 src={product.image}
