@@ -33,7 +33,7 @@ function CustomerDashboard() {
           {products.map((product) => (
             <div
               key={product._id}
-              className="w-[300px] h-[450px] overflow-hidden rounded-lg bg-[#b3ef1b] shadow"
+              className="w-[300px] h-[450px] overflow-hidden rounded-lg bg-[#feda87] shadow"
             >
               <img
                 src={product.image}

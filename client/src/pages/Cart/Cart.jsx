@@ -46,9 +46,11 @@ function CartPage() {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-[#fffbff]">
       {cartItems.length === 0 ? (
-        <h2>Your cart is empty</h2>
+        <h2 className=" bg-cyan-100 flex justify-center items-center h-screen text-2xl font-semibold text-stone-800">
+          Your cart is empty
+        </h2>
       ) : (
         <div>
           {cartItems.map((item) => (

@@ -167,7 +167,7 @@ app.post("/api/checkout", async (req, res) => {
         },
       ],
       success_url: `http://localhost:4000/success`,
-      cancel_url: `http://localhost:4000/cancel`,
+      cancel_url: `http://localhost:4000/cart`,
     });
 
     res.json({ id: session.id });
