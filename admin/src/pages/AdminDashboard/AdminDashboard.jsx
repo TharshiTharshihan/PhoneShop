@@ -61,7 +61,7 @@ function AdminDashboard() {
               key={product._id}
               className="bg-[#96acc0] border border-[#000000] rounded-xl shadow hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="w-full h-60 overflow-hidden rounded-t-xl">
+              <div className="w-full h-100 overflow-hidden rounded-t-xl">
                 <img
                   src={product.image}
                   alt={product.name}

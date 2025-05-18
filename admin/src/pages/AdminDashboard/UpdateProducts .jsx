@@ -39,7 +39,7 @@ function UpdateProducts() {
       .put(`http://localhost:3001/api/products/${id}`, { ...product })
       .then(() => {
         Swal.fire("Updated!", "Your product has been updated.", "success");
-        navigate("/admin");
+        navigate("/");
       })
       .catch((err) => {
         console.error(err);

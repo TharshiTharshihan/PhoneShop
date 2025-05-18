@@ -67,7 +67,7 @@ function FrontPage() {
           <div className="footer">
             <div className="footer-content">
               <div className="footer-logo">
-                <img src="./logo.png" alt="Company Logo" />
+                <img src="./smartphone.png" alt="Company Logo" />
               </div>
               <div className="footer-links">
                 <a href="#">About Us</a> | <a href="#">Contact</a> |
