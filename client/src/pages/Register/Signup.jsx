@@ -9,11 +9,12 @@ function Signup() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/signup", { name, email, password })
+      .post(`${BACKEND_URL}/signup`, { name, email, password })
       .then(() => {
         Swal.fire(
           "Congratulations! You Have Successfully Registered with Us 😊",

@@ -11,6 +11,7 @@ function UpdateProducts() {
   });
   const { id } = useParams();
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +23,7 @@ function UpdateProducts() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/products/${id}`)
+      .get(`${BACKEND_URL}/api/products/${id}`)
       .then((res) => {
         const { name, price, image } = res.data.data;
         setProduct({ name, price, image });
@@ -36,7 +37,7 @@ function UpdateProducts() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/api/products/${id}`, { ...product })
+      .put(`${BACKEND_URL}/api/products/${id}`, { ...product })
       .then(() => {
         Swal.fire("Updated!", "Your product has been updated.", "success");
         navigate("/");

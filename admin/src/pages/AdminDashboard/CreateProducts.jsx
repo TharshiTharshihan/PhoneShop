@@ -11,18 +11,19 @@ function CreateProducts() {
   const [image, setImage] = useState("");
 
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleAdd = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/api/products", { name, price, image })
+      .post(`${BACKEND_URL}/api/products`, { name, price, image })
       .then(() => {
         Swal.fire(
           "Congratulations! You Have Successfully created 😊",
           "",
           "success"
         );
-        navigate("/login");
+        navigate("/");
       })
       .catch(() =>
         Swal.fire({

@@ -7,10 +7,11 @@ import { useNavigate, Link } from "react-router-dom";
 function AdminDashboard() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/products")
+      .get(`${BACKEND_URL}/api/products`)
       .then((res) => {
         setProducts(res.data.data);
       })
@@ -33,7 +34,7 @@ function AdminDashboard() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3001/api/products/${id}`)
+          .delete(`${BACKEND_URL}/api/products/${id}`)
           .then(() => {
             setProducts(products.filter((product) => product._id !== id));
             Swal.fire("Deleted!", "Your product has been deleted.", "success");
@@ -55,7 +56,7 @@ function AdminDashboard() {
           Product Details
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-10 px-6 max-w-6xl mx-auto">
           {products.map((product) => (
             <div
               key={product._id}

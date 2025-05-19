@@ -8,11 +8,13 @@ function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { email, password })
+      .post(`${BACKEND_URL}/login`, { email, password })
       .then((res) => {
         if (res.data.status === "success") {
           if (res.data.role === "admin") {

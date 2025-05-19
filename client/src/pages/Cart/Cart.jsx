@@ -7,6 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 function CartPage() {
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   // Calculate the total price of all items
   const totalAmount = cartItems.reduce(
@@ -30,7 +31,7 @@ function CartPage() {
 
   const handlePayment = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/api/checkout", {
+      const response = await axios.post(`${BACKEND_URL}/api/checkout`, {
         totalAmount,
       });
 

@@ -8,12 +8,12 @@ import { addCart } from "../../redux/slice";
 function CustomerDashboard() {
   const [products, setProducts] = useState([]);
   const selected = useState("true");
-
   const dispatch = useDispatch();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/products")
+      .get(`${BACKEND_URL}/api/products`)
       .then((res) => {
         const updatedProducts = res.data.data.map((product) => ({
           ...product,
@@ -29,7 +29,7 @@ function CustomerDashboard() {
       <Nav />
 
       <div className="flex justify-center bg-[#d9d9d9]">
-        <div className="grid grid-cols-3 gap-x-6 gap-y-4 p-4">
+        <div className="grid grid-cols-3 gap-x-14 gap-y-10 p-4">
           {products.map((product) => (
             <div
               key={product._id}

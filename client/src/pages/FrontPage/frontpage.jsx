@@ -3,11 +3,12 @@ import "./frontpage.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header.jsx";
+import Services from "../Services.jsx";
 
 function FrontPage() {
   return (
     <>
-      <main id="main1">
+      <>
         <Header />
         <section id="banner">
           <div className="banner">
@@ -56,12 +57,6 @@ function FrontPage() {
             {/* <div className="GetStart">Get Start</div> */}
           </div>
         </section>
-        <section id="service">
-          <div className="service"></div>
-        </section>
-        <section id="features">
-          <div className="features"></div>
-        </section>
 
         <footer id="footer">
           <div className="footer">
@@ -90,7 +85,7 @@ function FrontPage() {
           <br />
           <br />
         </footer>
-      </main>
+      </>
     </>
   );
 }

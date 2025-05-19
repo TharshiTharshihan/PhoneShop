@@ -23,6 +23,7 @@ import CustomerDashboard from "./pages/CustomerDashboard/CustomerDashboard";
 import CartPage from "./pages/Cart/Cart";
 import Success from "./pages/Cart/Success";
 import Cancel from "./pages/Cart/Cancel";
+import Services from "./pages/Services";
 
 const ProtectedRoute = () => {
   const user = true;
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<FrontPage />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/services" element={<Services />}></Route>
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
 

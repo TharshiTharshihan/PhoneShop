@@ -12,7 +12,7 @@ const db = require("./db");
 const productModel = require("./models/products");
 const Stripe = require("stripe");
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-10-16", // Required for newer SDK versions
+  apiVersion: "2023-10-16",
 });
 app.use(cookieParser());
 app.use(express.json());
@@ -177,7 +177,7 @@ app.post("/api/checkout", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
