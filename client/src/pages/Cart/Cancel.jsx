@@ -13,52 +13,56 @@ const Cancel = () => {
       <nav className="py-6">
         <div className="container mx-auto px-4">
           <div className="relative flex items-center justify-between">
-            <a href="#" className="inline-block">
+            <Link to="" className="inline-block">
               <img
                 className="h-8"
                 src="https://static.shuffle.dev/components/preview/986f5bf3-d27a-4f97-b2aa-362994d0db41/assets/public/flow-assets/logos/logo-white-flow.svg"
                 alt=""
               />
-            </a>
-            <ul className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex">
+            </Link>
+            <ul className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex no-underline">
               <li className="mr-8">
-                <a
-                  className="inline-block text-white hover:text-lime-500 font-medium"
-                  href="#"
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className="inline-block text-white hover:text-lime-500 font-medium no-underline"
+                  to=""
                 >
                   About us
-                </a>
+                </Link>
               </li>
               <li className="mr-8">
-                <a
-                  className="inline-block text-white hover:text-lime-500 font-medium"
-                  href="#"
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className="inline-block text-white hover:text-lime-500 font-medium no-underline"
+                  to=""
                 >
                   Team
-                </a>
+                </Link>
               </li>
               <li className="mr-8">
-                <a
-                  className="inline-block text-white hover:text-lime-500 font-medium"
-                  href="#"
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className="inline-block text-white hover:text-lime-500 font-medium no-underline"
+                  to=""
                 >
                   Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  className="inline-block text-white hover:text-lime-500 font-medium"
-                  href="#"
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className="inline-block text-white hover:text-lime-500 font-medium no-underline"
+                  to=""
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="flex items-center justify-end">
               <div className="hidden md:block">
-                <a
-                  href="#"
-                  className="inline-flex group py-2.5 px-4 items-center justify-center text-sm font-medium text-white hover:text-teal-900 border border-white hover:bg-white rounded-full transition duration-200"
+                <Link
+                  to=""
+                  className="text-decoration-none inline-flex group py-2.5 px-4 items-center justify-center text-sm font-medium text-white hover:text-teal-900 border border-white hover:bg-white rounded-full transition duration-200"
                 >
                   <span className="mr-2 inline-block">Get in touch</span>
                   <span className="transform group-hover:translate-x-0.5 transition-transform duration-200">
@@ -85,7 +89,7 @@ const Cancel = () => {
                       ></path>
                     </svg>
                   </span>
-                </a>
+                </Link>
               </div>
               <button
                 onClick={toggleMobileNav}
@@ -139,9 +143,8 @@ const Cancel = () => {
                 lives.
               </p>
               <Link
-                href="#"
-                style={{ textDecoration: "none" }}
-                className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200 no-underline"
+                to=""
+                className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200 text-decoration-none"
               >
                 See our solutions
               </Link>
@@ -154,8 +157,8 @@ const Cancel = () => {
                 src="https://static.shuffle.dev/components/preview/986f5bf3-d27a-4f97-b2aa-362994d0db41/assets/public/flow-assets/headers/photo-men-right.png"
                 alt=""
               />
-              <a
-                href="#"
+              <Link
+                to=""
                 className="absolute bottom-0 left-0 group inline-flex p-6 m-4 sm:m-6 items-center font-medium bg-white hover:bg-lime-50 rounded-md transition duration-150"
               >
                 <svg
@@ -214,7 +217,7 @@ const Cancel = () => {
                     ></path>
                   </svg>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -232,20 +235,20 @@ const Cancel = () => {
         ></div>
         <nav className="relative flex flex-col py-7 px-10 w-full h-full bg-white overflow-y-auto">
           <div className="flex items-center justify-between">
-            <a href="#" className="inline-block">
+            <Link to="" className="inline-block">
               <img
                 className="h-8"
                 src="flow-assets/logos/sign-logo-flow.svg"
                 alt=""
               />
-            </a>
+            </Link>
             <div className="flex items-center">
-              <a
-                href="#"
-                className="inline-flex py-2.5 px-4 mr-6 items-center justify-center text-sm font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
+              <Link
+                to=""
+                className="inline-flex py-2.5 px-4 mr-6 items-center justify-center text-sm font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200 text-decoration-none"
               >
                 Login
-              </a>
+              </Link>
               <button onClick={toggleMobileNav}>
                 <svg
                   width="32"
@@ -268,43 +271,43 @@ const Cancel = () => {
           <div className="pt-20 pb-12 mb-auto">
             <ul className="flex-col">
               <li className="mb-6">
-                <a
-                  className="inline-block text-teal-900 hover:text-teal-700 font-medium"
-                  href="#"
+                <Link
+                  className="inline-block text-teal-900 hover:text-teal-700 font-medium text-decoration-none"
+                  to=""
                 >
                   About us
-                </a>
+                </Link>
               </li>
               <li className="mb-6">
-                <a
-                  className="inline-block text-teal-900 hover:text-teal-700 font-medium"
-                  href="#"
+                <Link
+                  className="inline-block text-teal-900 hover:text-teal-700 font-medium text-decoration-none"
+                  to=""
                 >
                   Team
-                </a>
+                </Link>
               </li>
               <li className="mb-6">
-                <a
-                  className="inline-block text-teal-900 hover:text-teal-700 font-medium"
-                  href="#"
+                <Link
+                  className="inline-block text-teal-900 hover:text-teal-700 font-medium text-decoration-none"
+                  to=""
                 >
                   Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  className="inline-block text-teal-900 hover:text-teal-700 font-medium"
-                  href="#"
+                <Link
+                  className="inline-block text-teal-900 hover:text-teal-700 font-medium text-decoration-none"
+                  to=""
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="flex items-center justify-between">
-            <a
-              href="#"
-              className="inline-flex items-center text-lg font-medium text-teal-900"
+            <Link
+              to=""
+              className="inline-flex items-center text-lg font-medium text-teal-900 text-decoration-none"
             >
               <span>
                 <svg
@@ -331,9 +334,9 @@ const Cancel = () => {
                 </svg>
               </span>
               <span className="ml-2">Newsletter</span>
-            </a>
+            </Link>
             <div className="flex items-center">
-              <a href="#" className="inline-block mr-4">
+              <Link to="" className="inline-block mr-4">
                 <svg
                   width="20"
                   height="20"
@@ -348,8 +351,8 @@ const Cancel = () => {
                     ></path>
                   </g>
                 </svg>
-              </a>
-              <a href="#" className="inline-block mr-4">
+              </Link>
+              <Link to="" className="inline-block mr-4">
                 <svg
                   width="24"
                   height="24"
@@ -362,8 +365,8 @@ const Cancel = () => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </a>
-              <a href="#" className="inline-block">
+              </Link>
+              <Link to="" className="inline-block">
                 <svg
                   width="24"
                   height="24"
@@ -376,7 +379,7 @@ const Cancel = () => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

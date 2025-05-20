@@ -102,6 +102,60 @@ function AdminDashboard() {
           </Link>
         </div>
       </div>
+      <footer className="bg-[#02141f] text-white w-full mt-[250px]">
+        <div className="flex flex-col items-center text-center px-4 py-8">
+          {/* Logo */}
+          <div className="mb-4">
+            <img
+              src="./smartphone.png"
+              alt="Company Logo"
+              className="w-[100px]"
+            />
+          </div>
+
+          {/* Links */}
+          <div className="mb-4 space-x-4">
+            <a href="#" className="hover:text-[#50c1e9] transition-colors">
+              About Us
+            </a>
+            <span>|</span>
+            <a href="#" className="hover:text-[#50c1e9] transition-colors">
+              Contact
+            </a>
+            <span>|</span>
+            <a href="#" className="hover:text-[#50c1e9] transition-colors">
+              Privacy Policy
+            </a>
+          </div>
+
+          {/* Social Icons */}
+          <div className="mb-4 flex gap-4 justify-center">
+            <a
+              href="#"
+              className="text-white hover:text-[#50c1e9] transition-colors text-xl"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              className="text-white hover:text-[#50c1e9] transition-colors text-xl"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              className="text-white hover:text-[#50c1e9] transition-colors text-xl"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+
+          {/* Footer Text */}
+          <p className="text-sm mt-2">
+            &copy; Tharshihan 2024. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </>
   );
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import Nav from "./Nav";
 import { addCart } from "../../redux/slice";
+import Footer from "../../components/Footer";
 
 function CustomerDashboard() {
   const [products, setProducts] = useState([]);
@@ -62,7 +63,7 @@ function CustomerDashboard() {
                           })
                         );
                       }}
-                      className="py-1 px-3 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg !rounded-lg border-transparent bg-cyan-600 text-white hover:bg-cyan-950 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
+                      className="py-1 px-3 inline-flex items-center gap-x-2 text-xs font-medium  !rounded-lg border-transparent bg-cyan-600 text-white hover:bg-cyan-950 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
                     >
                       ADD
                     </button>
@@ -79,6 +80,8 @@ function CustomerDashboard() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
