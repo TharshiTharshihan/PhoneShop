@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { login } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const dispatch = useDispatch();
 
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
@@ -16,26 +22,19 @@ function Login() {
       .post(`${BACKEND_URL}/login`, { email, password })
       .then((res) => {
         if (res.data.status === "success") {
-          if (res.data.role === "admin") {
-            navigate("/admin");
-            Swal.fire(
-              " You Have Successfully loggedin as Admin 😊",
-              "",
-              "success"
-            );
-          } else {
-            navigate("/Customer");
-            Swal.fire(
-              "You Have Successfully loggedin as Customer 😊",
-              "",
-              "success"
-            );
-          }
+          navigate("/Customer");
+          Swal.fire(
+            "You Have Successfully loggedin 😊",
+            "",
+            "success"
+          );
+          console.log("Login response data:", res.data);
+          dispatch(login(res.data));
         } else {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "invalid Login Credintials",
+            text: "Login failed. Please check your Email or password and try again.",
           });
         }
       })
@@ -44,7 +43,7 @@ function Login() {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Login failed. Please check your Email or password and try again.",
+          text: "Login failed. An unexpected error occurred.",
         });
       });
   };
@@ -100,28 +99,43 @@ function Login() {
                       </div>
                     </div>
 
-                    <div>
+                    <div className="mt-4 flex flex-col">
+                      {/* Label + Forgot password */}
                       <div className="flex items-center justify-between">
-                        <label className="text-base font-medium text-gray-900 font-pj">
-                          {" "}
-                          Password{" "}
+                        <label
+                          htmlFor="password"
+                          className="text-base font-medium text-gray-900 font-pj"
+                        >
+                          Password
                         </label>
                         <a
                           href="#"
-                          className="text-base font-medium !text-gray-500 rounded font-pj hover:text-gray-900 text-decoration-none focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+                          className="text-base font-medium !text-gray-500 rounded font-pj hover:text-gray-900 hover:underline focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
                         >
-                          Forgot your password?
+                          Forgot Password?
                         </a>
                       </div>
-                      <div className="mt-2.5">
+
+                      {/* Input + Eye button */}
+                      <div className="mt-2.5 relative">
                         <input
-                          type="password"
-                          required
-                          placeholder="Your password (min. 8 characters)"
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          placeholder="*******"
+                          className="block w-full px-4 py-4 text-gray-900 placeholder-gray-600 bg-white border border-gray-400 rounded-xl focus:border-gray-900 focus:ring-gray-900 caret-gray-900"
                           value={password}
                           onChange={(e) => setpassword(e.target.value)}
-                          className="block w-full px-4 py-4 text-gray-900 placeholder-gray-600 bg-white border border-gray-400 rounded-xl focus:border-gray-900 focus:ring-gray-900 caret-gray-900"
+                          required
                         />
+
+                        {/* Eye Icon */}
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-gray-900"
+                        >
+                          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                        </button>
                       </div>
                     </div>
 

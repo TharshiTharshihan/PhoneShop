@@ -55,7 +55,7 @@ app.post("/login", (req, res) => {
               { expiresIn: "1d" }
             );
             res.cookie("token", token);
-            return res.json({ status: "success", role: user.role });
+            return res.json({ status: "success", name: user.name });
           } else {
             return res.json("wrong password");
           }
@@ -93,7 +93,7 @@ app.post("/api/products", async (req, res) => {
 app.get("/api/products", async (req, res) => {
   try {
     const products = await productModel.find({});
-    res.status(201).json({ status: "success", data: products });
+    res.status(200).json({ status: "success", data: products });
   } catch (err) {
     console.error("Error in product", err.message);
     res.status(500).json({ success: false, message: "server error" });

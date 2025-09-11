@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { removeCart, updateQuantity } from "../../redux/slice";
+import { removeCart, updateQuantity } from "../../redux/cartSlice";
 import { loadStripe } from "@stripe/stripe-js";
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 
 function CartPage() {
   const cartItems = useSelector((state) => state.cart.cart);
@@ -49,68 +50,98 @@ function CartPage() {
 
   return (
     <>
-      <div className="p-4 bg-[#fffbff]">
+      <div className="min-h-screen bg-[#fffbff] flex flex-col">
         {cartItems.length === 0 ? (
-          <h2 className=" bg-cyan-100 flex justify-center items-center h-screen text-2xl font-semibold text-stone-800">
-            Your cart is empty
-          </h2>
-        ) : (
-          <div>
-            {cartItems.map((item) => (
-              <div
-                key={item._id}
-                className="flex items-center gap-4 p-4 border-b"
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+          >
+            <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-2xl ">
+              <h2
+                id="modalTitle"
+                className="text-2xl font-bold text-center text-gray-900  mb-4"
               >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-20 h-20 object-cover"
-                />
-                <div>
-                  <p>{item.name}</p>
-                  <p>Price: ${item.price}</p>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() =>
-                        handleQuantityChange(item, item.quantity - 1)
-                      }
-                      className="py-1 px-3 bg-gray-200 text-gray-800 rounded"
-                    >
-                      -
-                    </button>
-                    <span>Quantity: {item.quantity}</span>
-                    <button
-                      onClick={() =>
-                        handleQuantityChange(item, item.quantity + 1)
-                      }
-                      className="py-1 px-3 bg-gray-200 text-gray-800 rounded"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <button
-                  onClick={() => handleRemove(item)}
-                  className="ml-auto bg-red-600 text-white py-1 px-3 rounded"
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-
-            <div className="mt-4 text-xl font-semibold">
-              <p>Total Amount: ${totalAmount.toFixed(2)}</p>
+                Your Cart is Empty
+              </h2>
+              <p className="text-center text-gray-700  mb-6">
+                Go back to the shop and add some items to your cart! Don&apos;t
+                miss our latest collections and offers.
+              </p>
+              <Link
+                to="/Customer"
+                style={{ textDecoration: "none" }}
+                className="block w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 rounded transition decoration-none text-center"
+              >
+                Go to Shop
+              </Link>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "20px",
-              }}
-            >
+          </div>
+        ) : (
+          <div className="flex-1 max-w-3xl mx-auto w-full">
+            <h1 className="text-2xl font-bold text-center my-6 text-gray-900 dark:text-white">
+              Your Shopping Cart
+            </h1>
+            <div className="divide-y rounded-lg shadow bg-white dark:bg-gray-900">
+              {cartItems.map((item) => (
+                <div key={item._id} className="flex items-center gap-4 p-4">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-20 h-20 object-cover rounded border"
+                  />
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-900 dark:text-white">
+                      {item.name}
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Price: <span className="font-medium">${item.price}</span>
+                    </p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item, item.quantity - 1)
+                        }
+                        className="py-1 px-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded disabled:opacity-50"
+                        disabled={item.quantity <= 1}
+                        aria-label="Decrease quantity"
+                      >
+                        -
+                      </button>
+                      <span className="px-2 font-medium">
+                        Qty: {item.quantity}
+                      </span>
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item, item.quantity + 1)
+                        }
+                        className="py-1 px-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded"
+                        aria-label="Increase quantity"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => handleRemove(item)}
+                    className="ml-auto bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded transition"
+                    aria-label={`Remove ${item.name}`}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col items-end">
+              <p className="text-xl font-semibold text-gray-900 dark:text-white">
+                Total:{" "}
+                <span className="text-cyan-600">${totalAmount.toFixed(2)}</span>
+              </p>
               <button
-                className="bg-cyan-600 text-white py-2 px-4 rounded"
+                className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-6 rounded shadow transition disabled:opacity-50"
                 onClick={handlePayment}
+                disabled={cartItems.length === 0}
               >
                 Proceed to Payment
               </button>
@@ -118,6 +149,7 @@ function CartPage() {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 }

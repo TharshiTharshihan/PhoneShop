@@ -3,11 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Header from "../Header/Header.jsx";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Signup() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -325,7 +328,8 @@ function Signup() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="mt-4 flex flex-col">
+                    {/* Label + Forgot password */}
                     <div className="flex items-center justify-between">
                       <label
                         htmlFor="password"
@@ -335,22 +339,32 @@ function Signup() {
                       </label>
                       <a
                         href="#"
-                        className="text-decoration-none text-base font-medium  !text-gray-500 rounded font-pj hover:text-gray-900 hover:underline focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+                        className="text-base font-medium !text-gray-500 rounded font-pj hover:text-gray-900 hover:underline focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
                       >
                         Forgot Password?
                       </a>
                     </div>
-                    <div className="mt-2.5">
+
+                    {/* Input + Eye button */}
+                    <div className="mt-2.5 relative">
                       <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         name="password"
-                        id="password"
-                        placeholder="Password (min. 8 characters)"
+                        placeholder="*******"
                         className="block w-full px-4 py-4 text-gray-900 placeholder-gray-600 bg-white border border-gray-400 rounded-xl focus:border-gray-900 focus:ring-gray-900 caret-gray-900"
                         value={password}
                         onChange={(e) => setpassword(e.target.value)}
                         required
                       />
+
+                      {/* Eye Icon */}
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-gray-900"
+                      >
+                        {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                      </button>
                     </div>
                   </div>
 

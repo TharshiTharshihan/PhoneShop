@@ -4,7 +4,8 @@ const productSchema = new mongoose.Schema({
   name: { type: String, require },
   price: { type: String, require },
   image: { type: String, require },
-});
+
+}, { timestamps: true });
 
 const productModel = mongoose.model("Product", productSchema);
 

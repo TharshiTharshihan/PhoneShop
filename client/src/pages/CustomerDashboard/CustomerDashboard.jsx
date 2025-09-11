@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import Nav from "./Nav";
-import { addCart } from "../../redux/slice";
+import { addCart, removeCart } from "../../redux/cartSlice";
 import Footer from "../../components/Footer";
 
 function CustomerDashboard() {
   const [products, setProducts] = useState([]);
-  const selected = useState("true");
+  const [selected, setSelected] = useState(false);
   const dispatch = useDispatch();
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -29,53 +29,62 @@ function CustomerDashboard() {
     <>
       <Nav />
 
-      <div className="flex justify-center bg-[#d9d9d9]">
-        <div className="grid grid-cols-3 gap-x-14 gap-y-10 p-4">
+      <div className="flex justify-center max-w-6xl mx-auto ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
           {products.map((product) => (
             <div
               key={product._id}
-              className="w-[300px] h-[450px] overflow-hidden rounded-lg bg-[#feda87] shadow"
+              className="p-6 flex flex-col justify-between flex-grow rounded-lg  shadow"
             >
+              {/* Product Image */}
               <img
                 src={product.image}
-                className="aspect-video w-full h-[300px] object-cover transition-transform transform hover:scale-105 duration-500 ease-in-out"
-                alt={product.title}
+                className="w-full h-[300px] object-cover rounded-md mb-3 transition-transform transform hover:scale-105 duration-500 ease-in-out"
+                alt={product.name}
                 onError={(e) => {
                   e.target.src = "/fallback-image.jpg";
                 }}
               />
-              <div className="p-4">
-                <h3 className="text-xl font-medium text-gray-900">
-                  {product.name}
-                </h3>
-                <p className="mt-1 text-gray-500">{product.description}</p>
-                <div className="mt-2 flex gap-1">
-                  {selected ? (
-                    <button
-                      onClick={() => {
-                        dispatch(
-                          addCart({
-                            _id: product._id,
-                            name: product.name,
-                            price: product.price,
-                            image: product.image,
-                            quantity: 1,
-                          })
-                        );
-                      }}
-                      className="py-1 px-3 inline-flex items-center gap-x-2 text-xs font-medium  !rounded-lg border-transparent bg-cyan-600 text-white hover:bg-cyan-950 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
-                    >
-                      ADD
-                    </button>
-                  ) : (
-                    <button>remove</button>
-                  )}
 
-                  <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xl font-semibold text-neutral-950">
-                    ${product.price}
-                  </span>
-                </div>
-              </div>
+              {/* Product Name */}
+              <h3 className="text-xl font-sans text-blue-800 mb-2 text-start">
+                {product.name}
+              </h3>
+
+              {/* Special / Category */}
+              <p className="bg-green-100 text-blue-500 text-md font-[Roboto] px-3 py-1 rounded-full uppercase w-fit mb-3">
+                ${product.price}
+              </p>
+
+              {selected ? (
+                <button
+                  onClick={() => {
+                    dispatch(
+                      addCart({
+                        _id: product._id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1,
+                      })
+                    );
+                    setSelected(false); 
+                  }}
+                  className=" w-full rounded-sm bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+                >
+                  Add
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    dispatch(removeCart(product._id));
+                    setSelected(true);
+                  }}
+                  className="flex items-center justify-center w-20 h-10 rounded-md bg-red-500 text-white text-sm font-medium transition hover:bg-red-600 hover:scale-105"
+                >
+                  Remove
+                </button>
+              )}
             </div>
           ))}
         </div>

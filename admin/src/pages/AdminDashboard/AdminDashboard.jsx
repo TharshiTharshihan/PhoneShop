@@ -18,8 +18,9 @@ function AdminDashboard() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleEdit = (productId) => {
-    navigate(`/update/${productId}`);
+  const handleEdit = (id) => {
+
+    navigate(`/update/${id}`);
   };
 
   const handledelete = (id) => {
@@ -51,7 +52,10 @@ function AdminDashboard() {
 
   return (
     <>
-      <div className="bg-[#d9d9d9] min-h-screen py-20">
+      <h1 className="text-3xl font-bold text-blue-600 p-6 sticky top-0 bg-white z-10">
+        Admin Panel
+      </h1>
+      <div className="bg-gray-50 min-h-screen py-20">
         <h1 className="text-center text-3xl font-semibold text-gray-800 mb-12">
           Product Details
         </h1>
@@ -60,34 +64,32 @@ function AdminDashboard() {
           {products.map((product) => (
             <div
               key={product._id}
-              className="bg-[#96acc0] border border-[#000000] rounded-xl shadow hover:shadow-lg transition-shadow duration-300"
+              className="p-6 flex flex-col justify-between flex-grow rounded-lg  shadow"
             >
-              <div className="w-full h-100 overflow-hidden rounded-t-xl">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300  hover:cursor-pointer"
+                  className="w-full h-[300px] object-cover rounded-md mb-3 transition-transform transform hover:scale-105 duration-500 ease-in-out"
                 />
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-xl font-medium text-gray-800 mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-900  mb-4">Price: ${product.price}</p>
-                <div className="flex flex-col gap-3">
-                  <button
-                    onClick={() => handleEdit(product._id)}
-                    className="bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition hover:cursor-pointer"
-                  >
-                    <i className="bi bi-pen-fill mr-2"></i>Edit
-                  </button>
-                  <button
-                    onClick={() => handledelete(product._id)}
-                    className="bg-red-600 text-white font-medium py-2 rounded-md hover:bg-red-700 transition  hover:cursor-pointer"
-                  >
-                    <i className="bi bi-trash3-fill mr-2"></i>Delete
-                  </button>
-                </div>
+              <h3 className="text-xl font-sans text-blue-800 mb-2 text-start">
+                {product.name}
+              </h3>
+              <p className="bg-green-200 text-blue-500 text-md font-[Roboto] px-3 py-1 rounded-full uppercase w-fit mb-3">
+                ${product.price}
+              </p>{" "}
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => handleEdit(product._id)}
+                  className="bg-amber-400 text-white font-medium py-2 rounded-md hover:bg-amber-300 transition hover:cursor-pointer"
+                >
+                  <i className="bi bi-pen-fill mr-2"></i>Edit
+                </button>
+                <button
+                  onClick={() => handledelete(product._id)}
+                  className="bg-red-600 text-white font-medium py-2 rounded-md hover:bg-red-700 transition  hover:cursor-pointer"
+                >
+                  <i className="bi bi-trash3-fill mr-2"></i>Delete
+                </button>
               </div>
             </div>
           ))}
@@ -102,7 +104,7 @@ function AdminDashboard() {
           </Link>
         </div>
       </div>
-      <footer className="bg-[#02141f] text-white w-full mt-[250px]">
+      <footer className="bg-[#02141f] text-white w-full ">
         <div className="flex flex-col items-center text-center px-4 py-8">
           {/* Logo */}
           <div className="mb-4">

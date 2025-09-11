@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Nav = () => {
+  const {currentUser} = useSelector((state)=>state.user)
   const cartItems = useSelector((state) => state.cart.cart);
 
   return (
@@ -32,7 +33,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to="/signup"> Signup</Link>
+              <Link to="/signup"> {currentUser ? currentUser.name : "signup"}</Link>
             </li>
           </ul>
         </div>
