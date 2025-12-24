@@ -80,7 +80,7 @@ padding: 10px 24px;
     border-radius: 5px;
     box-shadow: 3px 3px 10px black;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .course:hover {
   background-color: #106374;

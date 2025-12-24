@@ -57,12 +57,57 @@ function FrontPage() {
             {/* <div className="GetStart">Get Start</div> */}
           </div>
         </section>
+        {/* newly added */}
+        {/* <div>
+          <div className=" absolute w-full h-[500px]">
+            <iframe
+              src="https://my.spline.design/claritystream-a72K0KUwFoZV82QBzvu52Kai/"
+              className="w-full h-full border-0"
+            ></iframe>
+          </div>
+
+          <div className="relative h-full z-10">
+            <div className="container mx-auto px-6 pt-16 md:pt-24">
+              <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-light  dark:text-white text-white tracking-tighter mb-6 leading-tight">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                    Build faster
+                  </span>{" "}
+                  with stunning templates
+                </h1>
+                <p className="text-gray-300 text-xl md:text-2xl mb-8 max-w-2xl font-light tracking-wide">
+                  Explore free &amp; premium website templates, UI components,
+                  and web tools to launch your next project in style — only on
+                  TemplateSee.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                  <button className="bg-white text-black font-light rounded-md px-8 py-3 hover:bg-opacity-90 transition-all">
+                    Browse Models
+                  </button>
+                  <a
+                    href="#"
+                    className="flex items-center text-gray-300 hover:text-white transition-colors py-3 px-2 group"
+                  >
+                    View Demos
+                    <span className="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">
+                      arrow_forward
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
 
         <footer id="footer">
           <div className="footer">
             <div className="footer-content">
               <div className="footer-logo">
-                <img src="./smartphone.png" alt="Company Logo" />
+                <img
+                  src="./smartphone.png"
+                  className="w-14 h-22 rounded-2xl "
+                  alt="Company Logo"
+                />
               </div>
               <div className="footer-links">
                 <a href="#">About Us</a> | <a href="#">Contact</a> |

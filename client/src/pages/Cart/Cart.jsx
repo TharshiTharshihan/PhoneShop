@@ -50,7 +50,7 @@ function CartPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#fffbff] flex flex-col">
+      <div className="min-h-screen bg-gradient-to-r from-green-100 via-gray-100 to-blue-200 flex flex-col p-6">
         {cartItems.length === 0 ? (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
@@ -80,7 +80,7 @@ function CartPage() {
           </div>
         ) : (
           <div className="flex-1 max-w-3xl mx-auto w-full">
-            <h1 className="text-2xl font-bold text-center my-6 text-gray-900 dark:text-white">
+            <h1 className="text-2xl font-bold text-center my-6 text-blue-700 dark:text-white">
               Your Shopping Cart
             </h1>
             <div className="divide-y rounded-lg shadow bg-white dark:bg-gray-900">
@@ -95,7 +95,7 @@ function CartPage() {
                     <p className="font-semibold text-gray-900 dark:text-white">
                       {item.name}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-600">
                       Price: <span className="font-medium">${item.price}</span>
                     </p>
                     <div className="flex items-center gap-2 mt-2">

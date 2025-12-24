@@ -7,7 +7,7 @@ function Footer() {
     <footer className="bg-gray-900 ">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex justify-center text-teal-600 ">
-          <img src="./smartphone.png" className="w-20 h-20" alt="logo" />
+          <img src="./smartphone.png" className="w-20 h-20 rounded-full" alt="logo" />
         </div>
 
         <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 ">

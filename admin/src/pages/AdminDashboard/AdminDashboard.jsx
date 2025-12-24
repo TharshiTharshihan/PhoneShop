@@ -52,19 +52,27 @@ function AdminDashboard() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-blue-600 p-6 sticky top-0 bg-white z-10">
+      <h1 className="text-3xl font-bold text-blue-600 p-6 sticky top-0 bg-gray-300 z-10">
         Admin Panel
       </h1>
-      <div className="bg-gray-50 min-h-screen py-20">
-        <h1 className="text-center text-3xl font-semibold text-gray-800 mb-12">
+      <div className="bg-gray-200 min-h-screen py-20">
+        <h1 className="text-center text-3xl font-semibold text-blue-800 mb-12">
           Product Details
         </h1>
+        <div className="flex md:justify-end justify-center-safe  md:m-12 mt-12">
+          <Link
+            to="/create"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-semibold py-2 px-6 rounded-full transition"
+          >
+            + Add New Product
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-10 px-6 max-w-6xl mx-auto">
           {products.map((product) => (
             <div
               key={product._id}
-              className="p-6 flex flex-col justify-between flex-grow rounded-lg  shadow"
+              className="bg-white p-6 flex flex-col justify-between flex-grow rounded-lg  shadow"
             >
                 <img
                   src={product.image}
@@ -95,14 +103,7 @@ function AdminDashboard() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-12">
-          <Link
-            to="/create"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-semibold py-2 px-6 rounded-full transition"
-          >
-            + Add New Product
-          </Link>
-        </div>
+        
       </div>
       <footer className="bg-[#02141f] text-white w-full ">
         <div className="flex flex-col items-center text-center px-4 py-8">

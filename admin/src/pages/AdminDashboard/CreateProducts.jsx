@@ -34,51 +34,79 @@ function CreateProducts() {
       );
   };
   return (
-    <div className="max-w-md mx-auto mt-50 bg-white p-6 rounded-2xl shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-        Create
-      </h2>
-      <form onSubmit={handleAdd} className="space-y-4">
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Name:</label>
-          <input
-            type="text"
-            required
-            onChange={(e) => setname(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Price:</label>
-          <input
-            type="number"
-            required
-            onChange={(e) => setPrice(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Image URL:
-          </label>
-          <input
-            type="url"
-            required
-            onChange={(e) => setImage(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 hover:cursor-pointer"
+   <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-green-100 to-blue-200 p-6">
+  <div className="w-full md:max-w-xl bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-gray-200">
+     <div className="flex items-center justify-between mb-6">
+      <button
+        onClick={() => window.history.back()}
+        className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          Add
-        </button>
-      </form>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Back
+      </button>
+      <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+        ✨ Create Product
+      </h2>
     </div>
+
+    <form onSubmit={handleAdd} className="space-y-6">
+      {/* Name */}
+      <div>
+        <label className="block text-gray-700 font-semibold mb-2">Name</label>
+        <input
+          type="text"
+          required
+          onChange={(e) => setname(e.target.value)}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Price */}
+      <div>
+        <label className="block text-gray-700 font-semibold mb-2">Price</label>
+        <input
+          type="number"
+          required
+          onChange={(e) => setPrice(e.target.value)}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Image URL */}
+      <div>
+        <label className="block text-gray-700 font-semibold mb-2">Image URL</label>
+        <input
+          type="url"
+          required
+          onChange={(e) => setImage(e.target.value)}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg shadow-md hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105"
+      >
+        Add Product
+      </button>
+    </form>
+  </div>
+</div>
+
   );
 }
 
