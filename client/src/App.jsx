@@ -25,6 +25,7 @@ import Success from "./pages/Cart/Success";
 import Cancel from "./pages/Cart/Cancel";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import SingleProduct from "./pages/SingleProduct";
 
 const ProtectedRoute = () => {
   const user = true;
@@ -49,6 +50,8 @@ function App() {
             <Route path="/create" element={<CreateProducts />}></Route>
             <Route path="/update/:id" element={<UpdateProducts />}></Route> */}
             <Route path="/customer" element={<CustomerDashboard />}></Route>
+                    <Route path="/product/:id" element={<SingleProduct />} />
+
             <Route path="/cart" element={<CartPage />}></Route>
           </Route>
         </Routes>

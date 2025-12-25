@@ -7,6 +7,7 @@ function UpdateProducts() {
   const [product, setProduct] = useState({
     name: "",
     price: "",
+    description:"",
     image: "",
   });
   const { id } = useParams();
@@ -27,8 +28,8 @@ function UpdateProducts() {
     axios
       .get(`${BACKEND_URL}/api/products/${id}`)
       .then((res) => {
-        const { name, price, image } = res.data.data;
-        setProduct({ name, price, image });
+        const { name, price, image,description } = res.data.data;
+        setProduct({ name, price, image ,description});
       })
       .catch((err) => {
         console.log(err);
@@ -103,6 +104,18 @@ function UpdateProducts() {
           type="number"
           required
           value={product.price}
+          onChange={handleInputChange}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        />
+      </div>
+      {/* description */}
+      <div>
+        <label className="block text-gray-700 font-semibold mb-1">Price</label>
+        <input
+          name="description"
+          type="text"
+          required
+          value={product.description}
           onChange={handleInputChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         />

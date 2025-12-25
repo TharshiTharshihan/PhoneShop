@@ -74,7 +74,7 @@ app.post("/login", (req, res) => {
 app.post("/api/products", async (req, res) => {
   const product = req.body;
 
-  if (!product.name || !product.price || !product.image) {
+  if (!product.name || !product.price || !product.image || !product.description) {
     return res.status(400).json({ message: "Fill all fields" });
   }
   const newProduct = new productModel(product);

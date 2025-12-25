@@ -85,6 +85,7 @@ function AdminDashboard() {
               <p className="bg-green-200 text-blue-500 text-md font-[Roboto] px-3 py-1 rounded-full uppercase w-fit mb-3">
                 ${product.price}
               </p>{" "}
+              
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => handleEdit(product._id)}

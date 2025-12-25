@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 function CreateProducts() {
   const [name, setname] = useState("");
   const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
 
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function CreateProducts() {
   const handleAdd = (e) => {
     e.preventDefault();
     axios
-      .post(`${BACKEND_URL}/api/products`, { name, price, image })
+      .post(`${BACKEND_URL}/api/products`, { name, price, image,description })
       .then(() => {
         Swal.fire(
           "Congratulations! You Have Successfully created 😊",
@@ -81,6 +82,16 @@ function CreateProducts() {
           type="number"
           required
           onChange={(e) => setPrice(e.target.value)}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      {/* description */}
+      <div>
+        <label className="block text-gray-700 font-semibold mb-2">Price</label>
+        <input
+          type="text"
+          required
+          onChange={(e) => setDescription(e.target.value)}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
