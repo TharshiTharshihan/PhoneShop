@@ -74,7 +74,7 @@ app.post("/login", (req, res) => {
 app.post("/api/products", async (req, res) => {
   const product = req.body;
 
-  if (!product.name || !product.price || !product.image || !product.description) {
+  if (!product.name || !product.price || !product.image || !product.category || !product.description) {
     return res.status(400).json({ message: "Fill all fields" });
   }
   const newProduct = new productModel(product);
@@ -92,7 +92,7 @@ app.post("/api/products", async (req, res) => {
 
 app.get("/api/products", async (req, res) => {
   try {
-    const products = await productModel.find({});
+    const products = await productModel.find({}).sort({ createdAt: -1 });
     res.status(200).json({ status: "success", data: products });
   } catch (err) {
     console.error("Error in product", err.message);

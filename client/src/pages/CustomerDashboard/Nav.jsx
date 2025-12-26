@@ -27,7 +27,7 @@ const Nav = () => {
           <ul className="flex gap-6 items-center  font-medium">
             <li>
               <Link
-                to="/"
+                to="/customer"
                 style={{ textDecoration: "none" , color:"blue"}}
                 className="  hover:text-yellow-200 transition no-underline"
               >
@@ -91,7 +91,7 @@ const Nav = () => {
           <ul className="flex flex-col gap-4 p-4 text-white font-medium ">
             <li>
               <Link
-                to="/"
+                to="/customer"
                 onClick={() => setIsOpen(false)}
                 style={{ textDecoration: "none" }}
                 className="text-gray-700 no-underline hover:underline hover:text-blue-600"

@@ -79,74 +79,131 @@ function CartPage() {
             </div>
           </div>
         ) : (
-          <div className="flex-1 max-w-3xl mx-auto w-full">
-            <h1 className="text-2xl font-bold text-center my-6 text-blue-700 dark:text-white">
-              Your Shopping Cart
-            </h1>
-            <div className="divide-y rounded-lg shadow bg-white dark:bg-gray-900">
-              {cartItems.map((item) => (
-                <div key={item._id} className="flex items-center gap-4 p-4">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-20 h-20 object-cover rounded border"
-                  />
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {item.name}
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-600">
-                      Price: <span className="font-medium">${item.price}</span>
-                    </p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <button
-                        onClick={() =>
-                          handleQuantityChange(item, item.quantity - 1)
-                        }
-                        className="py-1 px-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded disabled:opacity-50"
-                        disabled={item.quantity <= 1}
-                        aria-label="Decrease quantity"
-                      >
-                        -
-                      </button>
-                      <span className="px-2 font-medium">
-                        Qty: {item.quantity}
-                      </span>
-                      <button
-                        onClick={() =>
-                          handleQuantityChange(item, item.quantity + 1)
-                        }
-                        className="py-1 px-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded"
-                        aria-label="Increase quantity"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => handleRemove(item)}
-                    className="ml-auto bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded transition"
-                    aria-label={`Remove ${item.name}`}
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 flex flex-col items-end">
-              <p className="text-xl font-semibold text-gray-900 dark:text-white">
-                Total:{" "}
-                <span className="text-cyan-600">${totalAmount.toFixed(2)}</span>
-              </p>
+        <div className="flex-1 max-w-6xl mx-auto w-full">
+  <h1 className="text-2xl font-bold text-center my-6 text-blue-700 ">
+    Your Shopping Cart
+  </h1>
+   <button
+        onClick={() => window.history.back()}
+        className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Back
+      </button>
+
+  <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
+    <table className="w-full text-sm text-left text-gray-500 ">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+        <tr>
+          <th scope="col" className="px-16 py-3">
+            <span className="">Image</span>
+          </th>
+          <th scope="col" className="px-6 py-3">Product</th>
+          <th scope="col" className="px-6 py-3">Qty</th>
+          <th scope="col" className="px-6 py-3">Price</th>
+          <th scope="col" className="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {cartItems.map((item) => (
+          <tr
+            key={item._id}
+            className="bg-white !border-b  !border-gray-200 hover:!bg-gray-50 "
+          >
+            {/* Image */}
+            <td className="p-4">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-20 h-20 object-cover rounded border"
+              />
+            </td>
+
+            {/* Name */}
+            <td className="px-6 py-4 font-semibold text-gray-900 ">
+              {item.name}
+            </td>
+
+            {/* Quantity Input With +/- Buttons */}
+            <td className="px-6 py-4">
+              <div className="flex items-center">
+                <button
+                  onClick={() => handleQuantityChange(item, item.quantity - 1)}
+                  className="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 !rounded-full text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 "
+                  disabled={item.quantity <= 1}
+                >
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 18 2">
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M1 1h16" />
+                  </svg>
+                </button>
+
+                <input
+                  type="number"
+                  value={item.quantity}
+                  readOnly
+                  className="w-14 bg-gray-50 border !text-center border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 px-2.5 py-1  "
+                />
+
+                <button
+                  onClick={() => handleQuantityChange(item, item.quantity + 1)}
+                  className="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 !rounded-full hover:bg-gray-100"
+                >
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 1v16M1 9h16" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+
+            {/* Price */}
+            <td className="px-6 py-4 font-semibold text-gray-900">
+              ${item.price}
+            </td>
+
+            {/* Remove Button */}
+            <td className="px-6 py-4">
               <button
-                className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-6 rounded shadow transition disabled:opacity-50"
-                onClick={handlePayment}
-                disabled={cartItems.length === 0}
+                onClick={() => handleRemove(item)}
+                className="font-medium text-red-600"
               >
-                Proceed to Payment
+                Remove
               </button>
-            </div>
-          </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {/* Total + Payment */}
+  <div className="mt-6 flex flex-col items-end">
+    <p className="text-xl font-semibold text-gray-900 ">
+      Total: <span className="text-cyan-600">${totalAmount.toFixed(2)}</span>
+    </p>
+    <button
+      className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-6 rounded shadow transition disabled:opacity-50"
+      onClick={handlePayment}
+      disabled={cartItems.length === 0}
+    >
+      Proceed to Payment
+    </button>
+  </div>
+</div>
+
         )}
       </div>
       <Footer />

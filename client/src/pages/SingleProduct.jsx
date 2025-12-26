@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Nav from "./CustomerDashboard/Nav";
 import { addCart, removeCart } from "../redux/cartSlice";
-//import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
-import { MdKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 
 function SingleProduct() {
@@ -48,7 +47,7 @@ function SingleProduct() {
     <>      <Nav />
 
       <motion.div
-      className="flex flex-col lg:flex-row gap-10 mt-12 font-sans"
+      className="flex flex-col lg:flex-row gap-10 mt-12 font-sans mb-12"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -104,12 +103,12 @@ function SingleProduct() {
 
         {/* PRICE */}
         <motion.p
-          className="text-2xl font-semibold text-pink-700 mb-6"
+          className="text-2xl font-semibold text-gray-400 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          LKR. {product.price}
+          ${product.price}
         </motion.p>
 
         {/* ADD / REMOVE CART BUTTON */}
@@ -142,7 +141,7 @@ function SingleProduct() {
                   })
                 )
               }
-              className="w-auto p-3 text-lg rounded-md bg-yellow-500 text-gray-900 font-medium shadow-md hover:bg-yellow-400"
+              className="w-auto p-3 text-lg rounded-md bg-yellow-500 text-white font-medium shadow-md hover:bg-yellow-400"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -156,6 +155,8 @@ function SingleProduct() {
         </AnimatePresence>
       </motion.div>
     </motion.div>
+
+    <Footer />
     </>
   );
 }

@@ -44,14 +44,13 @@ function CustomerDashboard() {
                       src={product.image}
                       alt={product.name}
                       className="object-cover w-full h-[200px] transition-all duration-300 group-hover:scale-125"
-                      onError={(e) => (e.target.src = "/fallback-image.jpg")}
                     />
                   </Link>
 
                   {/* NEW Badge */}
                   <div className="absolute left-3 top-3">
                     <p className="px-2 py-1 text-[10px] font-bold tracking-wide text-gray-900 uppercase bg-white rounded-full shadow">
-                      New
+                     {product.category || "Causual"}
                     </p>
                   </div>
                 </div>
@@ -60,18 +59,15 @@ function CustomerDashboard() {
                 <div className="flex items-start justify-between mt-4 space-x-4">
                   <div>
                     {/* Product Name */}
-                    <h3 className="!text-lg !font-bold  !text-gray-800">
+                    <h3 className="!text-xl !font-semibold  !text-gray-500">
                       {product.name}
-                      <span
-                        className="absolute inset-0"
-                        aria-hidden="true"
-                      ></span>
+                      
                     </h3>
                   </div>
 
                   {/* Price */}
                   <div className="text-right">
-                    <p className="text-sm font-bold text-gray-900 md:text-base">
+                    <p className="!text-sm font-semibold font-[Roboto] text-gray-600 md:text-base">
                       ${product.price}
                     </p>
                   </div>
@@ -99,7 +95,7 @@ function CustomerDashboard() {
                           })
                         )
                       }
-                      className="w-full bg-yellow-400 text-gray-900 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-yellow-300 hover:scale-[1.03] shadow"
+                      className="w-full bg-yellow-400 text-white py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-yellow-300 hover:scale-[1.03] shadow"
                     >
                       Add to Cart
                     </button>

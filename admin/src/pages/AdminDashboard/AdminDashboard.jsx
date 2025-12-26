@@ -19,7 +19,6 @@ function AdminDashboard() {
   }, []);
 
   const handleEdit = (id) => {
-
     navigate(`/update/${id}`);
   };
 
@@ -55,9 +54,9 @@ function AdminDashboard() {
       <h1 className="text-3xl font-bold text-blue-600 p-6 sticky top-0 bg-gray-300 z-10">
         Admin Panel
       </h1>
-      <div className="bg-gray-200 min-h-screen py-20">
+      <div className="bg-gray-200 min-h-screen py-16">
         <h1 className="text-center text-3xl font-semibold text-blue-800 mb-12">
-          Product Details
+          Products
         </h1>
         <div className="flex md:justify-end justify-center-safe  md:m-12 mt-12">
           <Link
@@ -74,18 +73,30 @@ function AdminDashboard() {
               key={product._id}
               className="bg-white p-6 flex flex-col justify-between flex-grow rounded-lg  shadow"
             >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-[300px] object-cover rounded-md mb-3 transition-transform transform hover:scale-105 duration-500 ease-in-out"
-                />
-              <h3 className="text-xl font-sans text-blue-800 mb-2 text-start">
-                {product.name}
-              </h3>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-[300px] object-cover rounded-md mb-3 transition-transform transform hover:scale-105 duration-500 ease-in-out"
+              />
+              <div className="flex items-start justify-between mt-4 space-x-4">
+                <div>
+                  {/* Product Name */}
+                  <h3 className="!text-lg !font-semibold  !text-gray-600">
+                    {product.name}
+                  </h3>
+                </div>
+
+                {/* category */}
+                <div className="text-right">
+                  <p className=" bg-purple-50 text-purple-600 rounded-full font-[Roboto] px-3 py-1 md:text-base">
+                    {product.category}
+                  </p>
+                </div>
+              </div>
+
               <p className="bg-green-200 text-blue-500 text-md font-[Roboto] px-3 py-1 rounded-full uppercase w-fit mb-3">
                 ${product.price}
               </p>{" "}
-              
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => handleEdit(product._id)}
@@ -103,8 +114,6 @@ function AdminDashboard() {
             </div>
           ))}
         </div>
-
-        
       </div>
       <footer className="bg-[#02141f] text-white w-full ">
         <div className="flex flex-col items-center text-center px-4 py-8">
