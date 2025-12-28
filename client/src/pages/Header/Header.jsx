@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header id="header">
-      <div className="header bg-red">
+      <div className="header ">
         <div className="logo">
-          <img src="./smartphone.png" className="w-20 h-20 rounded-4xl" alt="logo" />
+          <img src="./shoe.png" className="w-20 h-20" alt="logo" />
         </div>
         <div className="navbar">
-          <ul className="menu">
+          <ul className="menu text-black">
             <li>
               <Link to="/">Home</Link>
             </li>

@@ -1,66 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 ">
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex justify-center text-teal-600 ">
-          <img src="./smartphone.png" className="w-20 h-20 rounded-full" alt="logo" />
+    <footer className="bg-[#a4a19a]  text-white pb-4 w-full">
+      <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center">
+          {/* Logo */}
+          <div className="mb-4">
+            <img
+              src="./shoe.png"
+              alt="Company Logo"
+              className="w-20 rounded-2xl"
+            />
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+            <Link
+              to="#"
+              className="text-white no-underline hover:!text-[#50c1e9] transition-all"
+            >
+              About Us
+            </Link>
+            <span>|</span>
+            <Link
+              to="#"
+              className="text-white no-underline hover:!text-[#50c1e9] transition-all"
+            >
+              Contact
+            </Link>
+            <span>|</span>
+            <Link
+              to="#"
+              className="text-white no-underline hover:!text-[#50c1e9] transition-all"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 text-xl mb-4 !text-white ">
+            <Link to="#" className="hover:!text-[#50c1e9] transition-all">
+              <i className="fab fa-facebook-f text-white hover:!text-[#50c1e9] "></i>
+            </Link>
+            <Link to="#" className="hover:!text-[#50c1e9] transition-all">
+              <i className="fab fa-twitter text-white hover:!text-[#50c1e9]"></i>
+            </Link>
+            <Link to="#" className="hover:!text-[#50c1e9] transition-all">
+              <i className="fab fa-instagram text-white hover:!text-[#50c1e9]"></i>
+            </Link>
+          </div>
         </div>
 
-        <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 ">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-          consequuntur amet culpa cum itaque neque.
+        {/* Copyright */}
+        <p className="text-xs">
+          {" "}
+          Tharshihan © {new Date().getFullYear()} . All rights reserved.
         </p>
-
-        <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12 no-underline">
-          {[
-            { name: "About", to: "/" },
-            { name: "Careers", to: "/" },
-            { name: "History", to: "/" },
-            { name: "Services", to: "/" },
-            { name: "Projects", to: "/" },
-            { name: "Blog", to: "/" },
-          ].map((item, i) => (
-            <li key={i}>
-              <Link
-                to={item.to}
-                className="!text-gray-200 hover:!text-red-400 transition-colors duration-300  !no-underline "
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <ul className="flex justify-center gap-6 md:gap-8">
-          {/* Facebook */}
-          <li>
-            <Link to="/" className="group">
-              <span className="sr-only">Facebook</span>
-              <i className="fab fa-facebook-f text-2xl text-gray-100 transition-colors duration-300 group-hover:text-teal-600"></i>
-            </Link>
-          </li>
-
-          {/* Twitter */}
-          <li>
-            <Link to="/" className="group">
-              <span className="sr-only">Twitter</span>
-              <i className="fab fa-twitter text-2xl text-gray-100 transition-colors duration-300 group-hover:text-teal-600"></i>
-            </Link>
-          </li>
-
-          {/* Instagram */}
-          <li>
-            <Link to="/" className="group">
-              <span className="sr-only ">Instagram</span>
-              <i className="fab fa-instagram text-2xl text-gray-100 transition-colors duration-300 group-hover:text-teal-600"></i>
-            </Link>
-          </li>
-        </ul>
       </div>
+
+      <br />
+      <br />
     </footer>
   );
 }

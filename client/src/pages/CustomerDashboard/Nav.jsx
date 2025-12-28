@@ -15,11 +15,11 @@ const Nav = () => {
         {/* Logo */}
         <div className="logo flex items-center gap-2">
           <img
-            src="./smartphone.png"
+            src="./shoe.png"
             className="w-14 h-14 rounded-4xl"
             alt="logo"
           />
-          <span className="text-xl font-bold text-amber-600">MyShop</span>
+          <span className="text-xl font-bold text-amber-600">Rio Shoes</span>
         </div>
 
         {/* Desktop Nav */}

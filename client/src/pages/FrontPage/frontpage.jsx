@@ -4,59 +4,82 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import Services from "../Services.jsx";
-
+import shoe from "../../assets/shoe.png";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Footer from "../../components/Footer"
 function FrontPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      once: true,
+    });
+  }, []);
+
   return (
     <>
       <>
         <Header />
-        <section id="banner">
-          <div className="banner">
-            <div className="banner-info">
-              <h1>
-                Rio Mobiles
-                <i className="bi bi-phone" style={{ color: "blue" }}></i>
-              </h1>
-              <div className="rating">
-                <p>Master Show Room</p>
-                <div className="stars">
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                </div>
-                <p>50 Ratings</p>
-              </div>
+        <div className="bg-white font-sans">
+          <section className="bg-opacity-30 py-2 sm:py-16 lg:py-10">
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+              <div className=" w-full grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+                <div
+                  className="w-auto  text-center md:text-start md:w-3/4 "
+                  data-aos="fade-left"
+                >
+                  <p className="text-base font-semibold tracking-wider text-gray-600 uppercase">
+                    Step Into Ultimate Comfort
+                  </p>
+                  <h1 className="mt-4 text-lg font-bold ! bg-gradient-to-r from-slate-600 to-red-800 bg-clip-text text-transparent lg:mt-8 sm:text-6xl xl:text-6xl">
+                    Stylish Footwear,
+                    <br /> Designed for Every Step!
+                  </h1>
+                  <p className="mt-4 text-base font-lavish text-black lg:mt-8 sm:text-lg">
+                    Discover premium shoes made with comfort, style, and
+                    durability in mind. From sporty sneakers and elegant heels
+                    to casual sandals and office classics — find the perfect
+                    pair that fits your personality.
+                  </p>
 
-              <p>
-                At Rio Mobiles, we bring you the latest smartphones with
-                cutting-edge technology, exceptional quality, and unbeatable
-                prices. As a trusted master showroom, we ensure a seamless
-                shopping experience with expert guidance and customer
-                satisfaction at the heart of everything we do. Whether you`re
-                looking for flagship models, budget-friendly options, or premium
-                accessories, our wide range of products caters to every need.
-                Visit us today and experience innovation like never before!
-              </p>
+                  <Link
+                    href="/shops"
+                    title=""
+                    className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-black transition-all duration-200 bg-yellow-300 rounded-full lg:mt-16 hover:bg-yellow-400 focus:bg-yellow-400 no-underline hover:no-underline"
+                    role="button"
+                  >
+                    Explore Our Shoe Collection{" "}
+                    <svg
+                      className="w-6 h-6 ml-8 -mr-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </Link>
+
+                  <p className="mt-5 text-gray-600">Ready to walk in style?</p>
+                </div>
+
+                <div
+                  className="w-full"
+                  data-aos="fade-right"
+                  data-aos-delay="5000"
+                >
+                  <img className="h-auto " src={shoe} alt="" />
+                </div>
+              </div>
             </div>
-            <div className="course">
-              <div className="course-block">
-                <h4>Kalmunai</h4>
-                <p>opens at 8.00 am</p>
-              </div>
-              <div className="course-block">
-                <h4>Galle</h4>
-                <p>opens at 8.00 am</p>
-              </div>
-              <div className="course-block">
-                <h4>Colombo</h4>
-                <p>opens at 9.00 am</p>
-              </div>
-            </div>
-            {/* <div className="GetStart">Get Start</div> */}
-          </div>
-        </section>
+          </section>
+        </div>
         {/* newly added */}
         {/* <div>
           <div className=" absolute w-full h-[500px]">
@@ -99,37 +122,7 @@ function FrontPage() {
           </div>
         </div> */}
 
-        <footer id="footer">
-          <div className="footer">
-            <div className="footer-content">
-              <div className="footer-logo">
-                <img
-                  src="./smartphone.png"
-                  className="w-14 h-22 rounded-2xl "
-                  alt="Company Logo"
-                />
-              </div>
-              <div className="footer-links">
-                <a href="#">About Us</a> | <a href="#">Contact</a> |
-                <a href="#">Privacy Policy</a>
-              </div>
-              <div className="footer-social">
-                <a href="#">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                  <i className="fab fa-instagram"></i>
-                </a>
-              </div>
-            </div>
-            <p>&copy; Tharshihan 2024 . All rights reserved.</p>
-          </div>
-          <br />
-          <br />
-        </footer>
+        <Footer/>
       </>
     </>
   );

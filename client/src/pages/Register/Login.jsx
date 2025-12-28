@@ -50,7 +50,7 @@ function Login() {
 
   return (
     <>
-      <section className="py-12 bg-gray-900 sm:py-16 lg:py-20">
+      <section className="py-12 bg-white sm:py-16 lg:py-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="relative max-w-md mx-auto lg:max-w-lg">
             <div className="absolute -inset-2">
@@ -63,7 +63,7 @@ function Login() {
               ></div>
             </div>
 
-            <div className="relative overflow-hidden bg-white shadow-xl rounded-xl">
+            <div className="relative overflow-hidden bg-gray-100 shadow-xl rounded-xl">
               <div className="px-4 py-6 sm:px-8">
                 <div className="flex items-center justify-between">
                   <h1 className="text-xl font-bold text-gray-900 font-pj">
