@@ -9,7 +9,7 @@ function Footer() {
           {/* Logo */}
           <div className="mb-4">
             <img
-              src="./shoe.png"
+              src="/shoe.png"
               alt="Company Logo"
               className="w-20 rounded-2xl"
             />

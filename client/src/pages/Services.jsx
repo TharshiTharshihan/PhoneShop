@@ -6,7 +6,7 @@ const items = [
     image:
       "https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     date: "27 Apr 2025",
-    title: "Launch Your Website Faster with TemplateSee",
+    title: "Launch Your Website Faster with Us",
     description:
       "Access stunning website templates and full-stack projects crafted for developers and startups. Start building today with TemplateSee!",
     tags: ["Templates", "Full-Stack", "Free & Premium"],

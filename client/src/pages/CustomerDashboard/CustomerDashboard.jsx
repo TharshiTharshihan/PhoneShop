@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 function CustomerDashboard() {
   const [products, setProducts] = useState([]);
   const cartItems = useSelector((state) => state.cart.cart);
-
+  const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -22,9 +22,12 @@ function CustomerDashboard() {
           quantity: 0,
         }));
         setProducts(updatedProducts);
+          console.log('currentUser:', currentUser);
+
       })
       .catch((err) => console.log(err));
   }, []);
+
 
   return (
     <>
@@ -50,7 +53,7 @@ function CustomerDashboard() {
                   {/* NEW Badge */}
                   <div className="absolute left-3 top-3">
                     <p className="px-2 py-1 text-[10px] font-bold tracking-wide text-gray-900 uppercase bg-white rounded-full shadow">
-                     {product.category || "Causual"}
+                      {product.category || "Causual"}
                     </p>
                   </div>
                 </div>
@@ -61,7 +64,6 @@ function CustomerDashboard() {
                     {/* Product Name */}
                     <h3 className="!text-xl !font-semibold  !text-gray-500">
                       {product.name}
-                      
                     </h3>
                   </div>
 
@@ -74,33 +76,37 @@ function CustomerDashboard() {
                 </div>
 
                 {/* Add / Remove Button */}
-                <div className="mt-4">
-                  {inCart ? (
-                    <button
-                      onClick={() => dispatch(removeCart({ _id: product._id }))}
-                      className="w-full bg-red-600 text-white py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-red-700 hover:scale-[1.03] shadow"
-                    >
-                      Remove from Cart
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() =>
-                        dispatch(
-                          addCart({
-                            _id: product._id,
-                            name: product.name,
-                            price: product.price,
-                            image: product.image,
-                            quantity: 1,
-                          })
-                        )
-                      }
-                      className="w-full bg-yellow-400 text-white py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-yellow-300 hover:scale-[1.03] shadow"
-                    >
-                      Add to Cart
-                    </button>
-                  )}
-                </div>
+               
+                  <div className="mt-4">
+                    {inCart ? (
+                      <button
+                        onClick={() =>
+                          dispatch(removeCart({ _id: product._id }))
+                        }
+                        className="w-full bg-red-600 text-white py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-red-700 hover:scale-[1.03] shadow"
+                      >
+                        Remove from Cart
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() =>
+                          dispatch(
+                            addCart({
+                              _id: product._id,
+                              name: product.name,
+                              price: product.price,
+                              image: product.image,
+                              quantity: 1,
+                            })
+                          )
+                        }
+                        className="w-full bg-yellow-400 text-white py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-yellow-300 hover:scale-[1.03] shadow"
+                      >
+                        Add to Cart
+                      </button>
+                    )}
+                  </div>
+                
               </div>
             );
           })}

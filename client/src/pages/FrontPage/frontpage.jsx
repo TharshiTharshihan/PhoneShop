@@ -10,7 +10,10 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../../components/Footer"
+
+
 function FrontPage() {
+
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -43,8 +46,8 @@ function FrontPage() {
                     pair that fits your personality.
                   </p>
 
-                  <Link
-                    href="/shops"
+                  <a
+                    href="#collection"
                     title=""
                     className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-black transition-all duration-200 bg-yellow-300 rounded-full lg:mt-16 hover:bg-yellow-400 focus:bg-yellow-400 no-underline hover:no-underline"
                     role="button"
@@ -64,7 +67,7 @@ function FrontPage() {
                         d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                  </Link>
+                  </a>
 
                   <p className="mt-5 text-gray-600">Ready to walk in style?</p>
                 </div>
@@ -79,7 +82,8 @@ function FrontPage() {
               </div>
           </section>
         </div>
-        <OfficialShoeSlice/>
+        <div id="collection">        <OfficialShoeSlice/>
+</div>
         {/* newly added */}
         {/* <div>
           <div className=" absolute w-full h-[500px]">

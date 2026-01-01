@@ -28,7 +28,7 @@ import About from "./pages/About";
 import SingleProduct from "./pages/SingleProduct";
 
 const ProtectedRoute = () => {
-  const user = true;
+  const user = false;
   return user ? <Outlet /> : <Navigate to="/" />;
 };
 
@@ -37,6 +37,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route element={<ProtectedRoute />}>
+            
+            <Route path="/customer" element={<CustomerDashboard />}></Route>
+             <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/cart" element={<CartPage />}></Route>
+          </Route>
           <Route path="/" element={<FrontPage />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -45,15 +51,7 @@ function App() {
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
 
-          <Route element={<ProtectedRoute />}>
-            {/* <Route path="/admin" element={<AdminDashboard />}></Route>
-            <Route path="/create" element={<CreateProducts />}></Route>
-            <Route path="/update/:id" element={<UpdateProducts />}></Route> */}
-            <Route path="/customer" element={<CustomerDashboard />}></Route>
-                    <Route path="/product/:id" element={<SingleProduct />} />
-
-            <Route path="/cart" element={<CartPage />}></Route>
-          </Route>
+          
         </Routes>
       </BrowserRouter>
     </>

@@ -15,7 +15,7 @@ const Nav = () => {
         {/* Logo */}
         <div className="logo flex items-center gap-2">
           <img
-            src="./shoe.png"
+            src="/shoe.png"
             className="w-14 h-14 rounded-4xl"
             alt="logo"
           />
@@ -26,13 +26,23 @@ const Nav = () => {
         <nav className="hidden md:flex">
           <ul className="flex gap-6 items-center  font-medium">
             <li>
-              <Link
+
+              {
+                currentUser ? <Link
                 to="/customer"
                 style={{ textDecoration: "none" , color:"blue"}}
                 className="  hover:text-yellow-200 transition no-underline"
               >
                 Home
+              </Link> : <Link
+                to="/"
+                style={{ textDecoration: "none" , color:"blue"}}
+                className="  hover:text-yellow-200 transition no-underline"
+              >
+                Home
               </Link>
+              }
+              
             </li>
             <li>
               <Link

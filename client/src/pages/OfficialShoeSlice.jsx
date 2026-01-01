@@ -4,7 +4,6 @@ import { HiOutlineTag } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
