@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import Services from "../Services.jsx";
 import shoe from "../../assets/shoe.png";
+import OfficialShoeSlice from "../OfficialShoeSlice"
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -19,11 +20,10 @@ function FrontPage() {
 
   return (
     <>
-      <>
+      
         <Header />
-        <div className="bg-white font-sans">
+        <div className="bg-white font-sans pt-28">
           <section className="bg-opacity-30 py-2 sm:py-16 lg:py-10">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
               <div className=" w-full grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
                 <div
                   className="w-auto  text-center md:text-start md:w-3/4 "
@@ -77,9 +77,9 @@ function FrontPage() {
                   <img className="h-auto " src={shoe} alt="" />
                 </div>
               </div>
-            </div>
           </section>
         </div>
+        <OfficialShoeSlice/>
         {/* newly added */}
         {/* <div>
           <div className=" absolute w-full h-[500px]">
@@ -123,7 +123,7 @@ function FrontPage() {
         </div> */}
 
         <Footer/>
-      </>
+      
     </>
   );
 }

@@ -10,7 +10,7 @@ const Header = () => {
       <div className="flex items-center justify-between py-4 px-6">
        <Link to="/" className="flex items-center gap-2">
           <img src="/shoe.png" alt="logo" className="w-14 h-14" />
-          <span className="font-bold text-lg !text-pink-700 font-sans">Rio Shoes </span>
+          <span className="font-bold text-lg !text-amber-600 font-sans">Rio Shoes </span>
         </Link>
 
         <ul className="hidden md:flex items-center !space-x-6 !text-gray-700 font-medium">
